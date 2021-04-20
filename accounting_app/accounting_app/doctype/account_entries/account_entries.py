@@ -3,10 +3,8 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-import frappe
+# import frappe
 from frappe.model.document import Document
-from datetime import datetime
 
-class Items(Document):
-	def before_save(self):
-		self.created_at = datetime.now()
+class AccountEntries(Document):
+	pass

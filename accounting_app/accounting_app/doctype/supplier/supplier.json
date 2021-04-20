@@ -69,6 +69,7 @@
   {
    "fieldname": "city",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "City"
   },
   {
@@ -87,7 +88,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2021-04-18 23:22:22.645391",
+ "modified": "2021-04-20 13:09:27.808452",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Supplier",

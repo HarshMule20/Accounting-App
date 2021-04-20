@@ -5,11 +5,13 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
+import uuid
+from datetime import datetime
 
 class Supplier(Document):
 	def before_save(self):
 		supplier = frappe.db.exists(
-			'Spplier',
+			'Supplier',
 			{
 				"email_address": self.email_address,
 				"status": self.status

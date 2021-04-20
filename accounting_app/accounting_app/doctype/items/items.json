@@ -33,6 +33,7 @@
   {
    "fieldname": "quantity",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Quantity"
   },
   {
@@ -49,6 +50,7 @@
   {
    "fieldname": "created_at",
    "fieldtype": "Datetime",
+   "in_list_view": 1,
    "label": "Created At"
   },
   {
@@ -61,7 +63,7 @@
    "label": "Item Description"
   }
  ],
- "modified": "2021-04-18 23:40:04.360648",
+ "modified": "2021-04-20 13:14:54.068899",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Items",

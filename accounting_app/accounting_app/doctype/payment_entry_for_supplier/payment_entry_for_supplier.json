@@ -1,0 +1,107 @@
+{
+ "autoname": "field:supplier_name",
+ "creation": "2021-04-19 03:34:58.705778",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "transaction_id",
+  "supplier_name",
+  "account_details",
+  "paid_from_account",
+  "column_break_5",
+  "invoice_number",
+  "payment_mode",
+  "date_of_payment",
+  "amount",
+  "invoice_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "transaction_id",
+   "fieldtype": "Data",
+   "label": "Transaction Id"
+  },
+  {
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supplier Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "account_details",
+   "fieldtype": "Data",
+   "label": "Paid to Account"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice Number"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Data",
+   "label": "Payment Mode"
+  },
+  {
+   "fieldname": "date_of_payment",
+   "fieldtype": "Datetime",
+   "label": "Date of Payment"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Payment Entry For Supplier",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "paid_from_account",
+   "fieldtype": "Data",
+   "label": "Paid From Account"
+  },
+  {
+   "fieldname": "invoice_details",
+   "fieldtype": "Link",
+   "label": "Invoice Details",
+   "options": "Purchase Invoice"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-04-19 10:28:59.274811",
+ "modified_by": "Administrator",
+ "module": "Accounting App",
+ "name": "Payment Entry For Supplier",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

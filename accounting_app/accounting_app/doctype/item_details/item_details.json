@@ -1,0 +1,37 @@
+{
+ "creation": "2021-04-19 03:04:06.366468",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "items",
+  "price"
+ ],
+ "fields": [
+  {
+   "fieldname": "items",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Items",
+   "options": "Items"
+  },
+  {
+   "fetch_from": "items.price",
+   "fieldname": "price",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Price"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-04-20 13:32:58.516939",
+ "modified_by": "Administrator",
+ "module": "Accounting App",
+ "name": "Item Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
