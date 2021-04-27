@@ -10,3 +10,5 @@ from datetime import datetime
 class Items(Document):
 	def before_save(self):
 		self.created_at = datetime.now()
+		if self.price <= 0:
+			frappe.throw("Amount/Price cannot set to 0 or less than 0")

@@ -10,6 +10,7 @@
   "invoice_number",
   "column_break_4",
   "debit_from_account",
+  "assets_account",
   "assets_account_number",
   "amount",
   "payment_mode",
@@ -41,10 +42,10 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "assets_account.account_number",
    "fieldname": "assets_account_number",
-   "fieldtype": "Link",
-   "label": "Assets Account Number",
-   "options": "Account"
+   "fieldtype": "Data",
+   "label": "Assets Account Number"
   },
   {
    "fieldname": "amount",
@@ -82,14 +83,20 @@
    "label": "Date"
   },
   {
+   "fetch_from": "customer.bank_account",
    "fieldname": "debit_from_account",
+   "fieldtype": "Data",
+   "label": "Debit From Account"
+  },
+  {
+   "fieldname": "assets_account",
    "fieldtype": "Link",
-   "label": "Debit From Account",
+   "label": "Assets Account",
    "options": "Account"
   }
  ],
  "is_submittable": 1,
- "modified": "2021-04-19 10:29:58.459522",
+ "modified": "2021-04-25 23:13:06.005338",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Sales Invoice",

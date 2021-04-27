@@ -5,7 +5,9 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
-from datetime import datetime
+from datetime import datetime, date
+import random
+import uuid
 
 class SalesInvoice(Document):
 	def on_submit(self):
@@ -21,14 +23,14 @@ class SalesInvoice(Document):
 		if exists:
 			frappe.throw("Something went wrong with the invoice number, please try again")
 		for each_item in self.items_details:
-			amount = each_item.price + amount
+			amount = float(each_item.price) + float(amount)
 		self.amount = amount
 		self.date = datetime.now()
 
 		""" Entering value for payment entry for customer """
 
-		payment_entry_for_customer = frappe.new_doc('Payment Entry For Customer')
-		payment_entry_for_customer.customer_name = self.supplier_name
+		payment_entry_for_customer = frappe.new_doc('Payment Entry for Customer')
+		payment_entry_for_customer.customer_name = self.customer_name
 		payment_entry_for_customer.paid_to_account = self.assets_account_number
 		payment_entry_for_customer.account_details = self.debit_from_account
 		payment_entry_for_customer.payment_mode = self.payment_mode
@@ -43,17 +45,18 @@ class SalesInvoice(Document):
 
 		journal_entry = frappe.new_doc('Journal Entry')
 		account_entry = frappe.new_doc('Account Entries')
-		account_entry.update({
+		account_entry = {
 			'account': self.assets_account_number,
-			'party': self.supplier_name,
+			'party': self.customer_name,
 			'party_type': "Customer",
 			"debit": 0.00,
 			"credit": self.amount
-		})
-
-		# journal_entry.entries.append(account_entry)
+		}
+		journal_entry.append('entries', account_entry)
 		journal_entry.total_credit = self.amount
 		journal_entry.total_debit = 0.00
+		journal_entry.created_at = datetime.now()
+		journal_entry.difference = journal_entry.total_credit - journal_entry.total_debit
 
 		journal_entry.save()
 		journal_entry.submit()
@@ -66,7 +69,8 @@ class SalesInvoice(Document):
 		general_ledger.voucher_type = "Sales Invoice"
 		general_ledger.debit = 0.00
 		general_ledger.credit = self.amount
-		general_ledger.created_at = datetime.now()
+		general_ledger.fiscal_year = self.date.year
+		general_ledger.created_at = date.today()
 
 		general_ledger.save()
 		general_ledger.submit()

@@ -7,7 +7,7 @@ import frappe
 from frappe.model.document import Document
 import random
 import uuid
-from datetime import datetime
+from datetime import datetime, date
 
 class PurchaseInvoice(Document):
 	def on_submit(self):
@@ -47,32 +47,31 @@ class PurchaseInvoice(Document):
 		""" Entering values in the Journal for supplier"""
 
 		journal_entry = frappe.new_doc('Journal Entry')
-		account_entry = frappe.new_doc('Account Entries')
-		account_entry.update({
+		account_entry = {
 			'account': self.assets_account,
 			'party': self.supplier_name,
 			'party_type': "Supplier",
 			"debit": self.amount,
 			"credit": 0.00
-		})
+		}
 
-		# journal_entry.entries.append(account_entry)
-		# journal_entry.entries = account_entry
+		journal_entry.append('entries', account_entry)
 		journal_entry.total_debit = self.amount
 		journal_entry.total_credit = 0.00
-
+		journal_entry.entry_id = str(uuid.uuid1())
 		journal_entry.save()
 		journal_entry.submit()
 
 		""" Saving data/ entry for purchase in general ledger"""
 		general_ledger = frappe.new_doc('General Ledger')
 		general_ledger.transaction_date = self.date
-		general_ledger.account = self.assets_account
+		general_ledger.account = self.debit_account_number
 		general_ledger.against_account = self.credit_account_number
 		general_ledger.voucher_type = "Purchase Invoice"
 		general_ledger.debit = self.amount
 		general_ledger.credit = 0.00
-		general_ledger.created_at = datetime.now()
+		general_ledger.fiscal_year = self.date.year
+		general_ledger.created_at = date.today()
 
 		general_ledger.save()
 		general_ledger.submit()

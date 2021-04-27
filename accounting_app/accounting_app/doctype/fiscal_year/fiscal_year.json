@@ -39,6 +39,7 @@
    "label": "Created At"
   },
   {
+   "allow_on_submit": 1,
    "default": "Active",
    "fieldname": "status",
    "fieldtype": "Select",
@@ -55,8 +56,7 @@
    "read_only": 1
   }
  ],
- "is_submittable": 1,
- "modified": "2021-04-19 02:22:40.415418",
+ "modified": "2021-04-23 15:17:03.972543",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Fiscal Year",

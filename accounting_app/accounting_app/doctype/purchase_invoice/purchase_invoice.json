@@ -11,6 +11,7 @@
   "column_break_4",
   "credit_account_number",
   "assets_account",
+  "debit_account_number",
   "amount",
   "payment_mode",
   "section_break_8",
@@ -43,10 +44,10 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "supplier.bank_account",
    "fieldname": "credit_account_number",
-   "fieldtype": "Link",
-   "label": "Credit Account Number",
-   "options": "Account"
+   "fieldtype": "Data",
+   "label": "Credit Account Number"
   },
   {
    "fieldname": "amount",
@@ -86,12 +87,18 @@
   {
    "fieldname": "assets_account",
    "fieldtype": "Link",
-   "label": "Assets Account",
+   "label": "Debit Account",
    "options": "Account"
+  },
+  {
+   "fetch_from": "assets_account.account_number",
+   "fieldname": "debit_account_number",
+   "fieldtype": "Data",
+   "label": "Debit Account Number"
   }
  ],
  "is_submittable": 1,
- "modified": "2021-04-20 13:25:28.198724",
+ "modified": "2021-04-25 23:24:13.646574",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Purchase Invoice",

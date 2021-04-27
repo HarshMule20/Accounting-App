@@ -10,7 +10,8 @@
   "difference",
   "section_break_5",
   "entries",
-  "amended_from"
+  "amended_from",
+  "entry_id"
  ],
  "fields": [
   {
@@ -51,10 +52,15 @@
    "options": "Journal Entry",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "entry_id",
+   "fieldtype": "Data",
+   "label": "Entry Id"
   }
  ],
  "is_submittable": 1,
- "modified": "2021-04-19 16:32:45.716292",
+ "modified": "2021-04-20 16:13:40.259955",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Journal Entry",

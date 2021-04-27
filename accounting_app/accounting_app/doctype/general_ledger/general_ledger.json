@@ -60,11 +60,11 @@
   },
   {
    "fieldname": "created_at",
-   "fieldtype": "Datetime",
+   "fieldtype": "Date",
    "label": "Created At"
   }
  ],
- "modified": "2021-04-20 14:26:47.227467",
+ "modified": "2021-04-26 11:00:47.567542",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "General Ledger",
