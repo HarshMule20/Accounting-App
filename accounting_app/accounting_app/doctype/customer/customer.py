@@ -9,7 +9,7 @@ import uuid
 from datetime import datetime
 
 class Customer(Document):
-	def before_save(self):
+	def before_submit(self):
 		customer = frappe.db.exists(
 			'Customer',
 			{

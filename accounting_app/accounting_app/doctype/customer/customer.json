@@ -9,6 +9,7 @@
   "last_name",
   "phone",
   "city",
+  "account",
   "bank_account",
   "created_at",
   "column_break_5",
@@ -45,6 +46,7 @@
    "read_only": 1
   },
   {
+   "fetch_from": "account.account_balance",
    "fieldname": "account_balance",
    "fieldtype": "Float",
    "label": "Account Balance"
@@ -100,16 +102,24 @@
    "read_only": 1
   },
   {
+   "fetch_from": "account.account_number",
    "fieldname": "bank_account",
    "fieldtype": "Data",
    "label": "Bank Account"
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Account"
   }
  ],
  "is_submittable": 1,
- "modified": "2021-04-20 13:00:22.525113",
+ "modified": "2021-04-28 12:19:18.299727",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Customer",
+ "name_case": "Title Case",
  "owner": "Administrator",
  "permissions": [
   {

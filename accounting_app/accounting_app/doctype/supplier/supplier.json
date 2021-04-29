@@ -10,9 +10,11 @@
   "email_address",
   "phone",
   "city",
-  "bank_account",
+  "account",
   "created_at",
   "column_break_4",
+  "bank_account",
+  "account_balance",
   "supplier_type",
   "status",
   "country",
@@ -88,13 +90,26 @@
    "read_only": 1
   },
   {
+   "fetch_from": "account.account_number",
    "fieldname": "bank_account",
    "fieldtype": "Data",
    "label": "Bank Account"
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Account"
+  },
+  {
+   "fetch_from": "account.account_balance",
+   "fieldname": "account_balance",
+   "fieldtype": "Data",
+   "label": "Account Balance"
   }
  ],
  "is_submittable": 1,
- "modified": "2021-04-25 23:22:16.840328",
+ "modified": "2021-04-28 12:13:27.585538",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Supplier",
