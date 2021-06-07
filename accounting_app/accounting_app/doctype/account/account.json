@@ -32,12 +32,14 @@
   {
    "fieldname": "account_balance",
    "fieldtype": "Float",
-   "label": "Account Balance"
+   "label": "Account Balance",
+   "reqd": 1
   },
   {
    "fieldname": "account_currency",
    "fieldtype": "Data",
-   "label": "Account Currency"
+   "label": "Account Currency",
+   "reqd": 1
   },
   {
    "fieldname": "status",
@@ -117,7 +119,7 @@
  ],
  "is_submittable": 1,
  "is_tree": 1,
- "modified": "2021-04-19 02:48:06.693981",
+ "modified": "2021-06-07 16:50:49.862508",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Account",

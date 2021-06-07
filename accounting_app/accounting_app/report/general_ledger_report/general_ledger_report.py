@@ -20,6 +20,9 @@ def execute(filters=None):
 	return columns, data
 
 def get_filtered_date(filters=None):
+	"""
+		To get the data filtered as per the values entered in the filters.
+	"""
 	if filters:
 		create_filter = []
 		if filters.get('account'):

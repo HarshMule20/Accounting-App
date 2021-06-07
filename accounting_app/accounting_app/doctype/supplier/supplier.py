@@ -10,6 +10,9 @@ from datetime import datetime
 
 class Supplier(Document):
 	def before_save(self):
+		"""
+			to check  whether the entered value already exists.
+		"""
 		supplier = frappe.db.exists(
 			'Supplier',
 			{
