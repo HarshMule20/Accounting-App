@@ -11,7 +11,7 @@ from datetime import datetime
 class Customer(Document):
 	def before_submit(self):
 		"""
-			to check  whether the entered value already exists.
+			to check whether the account of type customer already exists.
 		"""
 		customer = frappe.db.exists(
 			'Customer',
@@ -23,6 +23,10 @@ class Customer(Document):
 		if customer:
 			frappe.throw("Customer with the same email exists")
 
+		"""
+			to create a unique Id for customer	
+		"""
 		self.customer_id = str(uuid.uuid4())
+		
 		self.full_name = f'{self.first_name} {self.last_name}'
 		self.created_at = datetime.now()

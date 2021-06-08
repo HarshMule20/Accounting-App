@@ -21,7 +21,7 @@ def execute(filters=None):
 
 def get_filtered_date(filters=None):
 	"""
-		To get the data filtered as per the values entered in the filters.
+		To get the filtered data as per the values entered into the filters.
 	"""
 	if filters:
 		create_filter = []
@@ -37,13 +37,9 @@ def get_filtered_date(filters=None):
 		if filters.get('transaction_date'):
 			create_filter += ["transaction_date = '{}'".format(filters.get('transaction_date'))]
 		if filters.get('created_at'):
-			print("in if")
 			create_filter.append("created_at = '{}'".format(filters.get('created_at')))
-		print("create filter", create_filter)
 		where_conditions = 'where {}'.format(' and '.join(create_filter))
-		print(where_conditions)   
 		query = 'select * from `tabGeneral Ledger` {} order by created_at desc;'.format(where_conditions)
-		print(query)
 		data = frappe.db.sql(query, filters, as_dict=1)
 		return data
 	query = 'select * from `tabGeneral Ledger` order by created_at desc;'

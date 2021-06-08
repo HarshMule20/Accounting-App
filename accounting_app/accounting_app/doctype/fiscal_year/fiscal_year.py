@@ -9,6 +9,9 @@ from datetime import datetime
 
 class FiscalYear(Document):
 	def before_submit(self):
+		"""
+			to save the first and the last day of fiscal year
+		"""
 		self.start_date = datetime.now().date().replace(month=1, day=1)
 		self.end_date = datetime.now().date().replace(month=12, day=31)
 		self.created_at = datetime.now()

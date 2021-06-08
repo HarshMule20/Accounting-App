@@ -105,7 +105,7 @@
    "fetch_from": "account.account_number",
    "fieldname": "bank_account",
    "fieldtype": "Data",
-   "label": "Bank Account"
+   "label": "Account Number"
   },
   {
    "fieldname": "account",
@@ -115,7 +115,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2021-04-28 12:19:18.299727",
+ "modified": "2021-06-07 18:22:45.922587",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Customer",

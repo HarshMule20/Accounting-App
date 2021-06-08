@@ -34,7 +34,7 @@ class PurchaseInvoice(Document):
 		
 		payment_entry_for_supplier = frappe.new_doc('Payment Entry For Supplier')
 		payment_entry_for_supplier.supplier_name = self.supplier_name
-		payment_entry_for_supplier.paid_from_account = self.assets_account
+		payment_entry_for_supplier.paid_from_account = self.debit_account_number
 		payment_entry_for_supplier.account_details = self.credit_account_number
 		payment_entry_for_supplier.payment_mode = self.payment_mode
 		payment_entry_for_supplier.date_of_payment = self.date

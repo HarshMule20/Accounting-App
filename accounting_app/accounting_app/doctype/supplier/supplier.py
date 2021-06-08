@@ -11,7 +11,7 @@ from datetime import datetime
 class Supplier(Document):
 	def before_save(self):
 		"""
-			to check  whether the entered value already exists.
+			to check  whether the supplier account type already exists.
 		"""
 		supplier = frappe.db.exists(
 			'Supplier',
@@ -23,6 +23,10 @@ class Supplier(Document):
 		if supplier:
 			frappe.throw("Supplier with the same email exists")
 		
+		"""
+			to create a unique Id for supplier	
+		"""
 		self.supplier_id = str(uuid.uuid4())
+		
 		self.created_at = datetime.now()
 

@@ -7,5 +7,4 @@ import frappe
 from frappe.model.document import Document
 
 class GeneralLedger(Document):
-	def after_save(self):
-		pass
+	pass

@@ -13,6 +13,10 @@ class Account(NestedSet):
 	nsm_parent_field = "parent_account"
 
 	def before_submit(self):
+		"""
+			added a logic to generate random/unique number for account details
+		"""
+
 		n = 10
 		range_start = 10**(n-1)
 		range_end = (10**n)-1
